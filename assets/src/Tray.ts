@@ -34,7 +34,6 @@ export class Tray extends Component {
   start() {
     input.on(Input.EventType.KEY_DOWN, this.onKeyDown, this);
     input.on(Input.EventType.KEY_UP, this.onKeyUp, this);
-    // this.node.setRotation(quat(-0.25, 0, -0.25));
     this.rotate(this.randomRotation(), this.randomRotation());
   }
 
@@ -90,11 +89,6 @@ export class Tray extends Component {
   }
 
   update(deltaTime: number) {
-    // const rotation = this.node.getRotation();
-    // this.setRotation(
-    //   rotation.x + this.xArrowKeyDirection * rotationRatio * deltaTime,
-    //   rotation.z + this.zArrowKeyDirection * rotationRatio * deltaTime
-    // );
     this.rotate(
       this.xArrowKeyDirection * rotationRatio * deltaTime,
       this.zArrowKeyDirection * rotationRatio * deltaTime
@@ -104,9 +98,16 @@ export class Tray extends Component {
   private rotate(x: number, z: number): void {
     this.node.rotate(quat(x, 0, z));
     const rotation = this.node.getRotation();
-    // console.log(rotation);
   }
 
+  /** Rotating this way somehow changes the tray shape... */
+  // update(deltaTime: number) {
+  //   const rotation = this.node.getRotation();
+  //   this.setRotation(
+  //     rotation.x + this.xArrowKeyDirection * rotationRatio * deltaTime,
+  //     rotation.z + this.zArrowKeyDirection * rotationRatio * deltaTime
+  //   );
+  // }
   private setRotation(x: number, z: number): void {
     const rotation = this.node.getRotation();
     rotation.set(this.trimRotation(x), rotation.y, this.trimRotation(z));
