@@ -35,8 +35,7 @@ export class Tray extends Component {
     input.on(Input.EventType.KEY_DOWN, this.onKeyDown, this);
     input.on(Input.EventType.KEY_UP, this.onKeyUp, this);
     // this.node.setRotation(quat(-0.25, 0, -0.25));
-    // this.rotate(this.randomRotation(), this.randomRotation());
-    // this.rotate(0.1, 0.01);
+    this.rotate(this.randomRotation(), this.randomRotation());
   }
 
   private randomRotation(): number {
@@ -48,7 +47,7 @@ export class Tray extends Component {
     input.off(Input.EventType.KEY_UP, this.onKeyUp, this);
   }
 
-  onKeyDown(e: EventKeyboard) {
+  private onKeyDown(e: EventKeyboard) {
     switch (e.keyCode) {
       case KeyCode.ARROW_LEFT:
         this.zArrowKeyDirection = 1;
@@ -65,7 +64,7 @@ export class Tray extends Component {
     }
   }
 
-  onKeyUp(e: EventKeyboard) {
+  private onKeyUp(e: EventKeyboard) {
     switch (e.keyCode) {
       case KeyCode.ARROW_LEFT:
         if (this.zArrowKeyDirection == 1) {
@@ -105,7 +104,7 @@ export class Tray extends Component {
   private rotate(x: number, z: number): void {
     this.node.rotate(quat(x, 0, z));
     const rotation = this.node.getRotation();
-    console.log(rotation);
+    // console.log(rotation);
   }
 
   private setRotation(x: number, z: number): void {
