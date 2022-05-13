@@ -16,7 +16,7 @@ const { ccclass, property } = _decorator;
 @ccclass("Ball")
 export class Ball extends Component {
   start() {
-    const rb = this.node.getComponent(RigidBody);
+    // const rb = this.node.getComponent(RigidBody);
     // rb.setLinearVelocity(new math.Vec3(1, 0, 2));
     // PhysicsSystem.instance.enable = false;
   }

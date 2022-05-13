@@ -97,7 +97,6 @@ export class Tray extends Component {
 
   private rotate(x: number, z: number): void {
     this.node.rotate(quat(x, 0, z));
-    const rotation = this.node.getRotation();
   }
 
   /** Rotating this way somehow changes the tray shape... */
